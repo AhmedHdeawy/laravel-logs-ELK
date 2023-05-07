@@ -1,0 +1,11 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/laravel/*.log
+
+# output.elasticsearch:
+#   hosts: ["host.docker.internal:9200"]
+
+
+output.logstash:
+  hosts: ["host.docker.internal:5044"]

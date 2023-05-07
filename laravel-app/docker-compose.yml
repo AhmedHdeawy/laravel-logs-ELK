@@ -67,6 +67,20 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    filebeat:
+        image: elastic/filebeat:7.17.10
+        container_name: filebeat
+        user: root
+        platform: linux/amd64
+        volumes:
+            - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+            - ./storage/logs:/var/log/laravel
+        environment:
+            - monitoring.enabled= true
+        depends_on:
+            - laravel.test  
+        networks:
+            - sail
 
 networks:
     sail:
