@@ -67,6 +67,8 @@ Finally, from Kibana navigation panel, choose `Discover` and then select our Ind
 
 Congratulations, now you can see your logs and search for your logs
 
+<p align="center"><img src="https://raw.githubusercontent.com/AhmedHdeawy/laravel-logs-ELK/main/laravel-app/public/logs-example.png"  alt="Laravel ELK Stack"></p>
+
 ## License
 
 This code is released under the MIT License.
