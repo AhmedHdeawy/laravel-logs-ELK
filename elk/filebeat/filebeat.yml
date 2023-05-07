@@ -1,7 +1,0 @@
-filebeat.inputs:
-- type: log
-  paths:
-    - /var/www/html/storage/logs/*.log
-
-output.logstash:
-  hosts: ["logstash:9600"]

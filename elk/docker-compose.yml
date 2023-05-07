@@ -12,13 +12,12 @@ services:
       bootstrap.memory_lock: true
       discovery.type: single-node
       xpack.license.self_generated.type: basic
-      ELASTIC_PASSWORD: "ahmed12"
       xpack.security.enabled: false
     ports:
     - '9200:9200'
     - '9300:9300'
     networks:
-      - elk-network
+      - elk-stack-network
 
   Logstash:
     image: logstash:7.17.10
@@ -35,7 +34,7 @@ services:
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"    
     networks:
-      - elk-network
+      - elk-stack-network
 
   Kibana:
     image: kibana:7.17.10
@@ -48,11 +47,11 @@ services:
     depends_on:
       - elasticsearch  
     networks:
-      - elk-network
+      - elk-stack-network
 
 
 volumes:
   elastic_data: {}
 
 networks:
-  elk-network:
+  elk-stack-network:
