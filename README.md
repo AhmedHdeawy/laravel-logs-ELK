@@ -1,18 +1,11 @@
 <p align="center"><img src="https://raw.githubusercontent.com/AhmedHdeawy/laravel-logs-ELK/main/laravel-app/public/laravel-elk.jpg"  alt="Laravel ELK Stack"></p>
 
-## Sending Laravel logs to ELK
-
-This repository contains a Docker setup for a Laravel application and Elk stack, reads the laravel logs bu filebeat and sends them to a Logstash container running in another Docker Compose stack. and finally you can see the logs in Kibana
-
-## Idea
-
- The Laravel application will log to the `storage\logs` directory. Filebeat will read the logs and send them to Logstash running in another Docker Compose stack, where you can then configure it to do whatever you want with the logs. these logs from Logstash will save in Elastic, and finally Kibana will read the logs and visualize them
 
 
-## Prerequisites
+# About the project
 
-- Docker
-- Docker Compose
+ This repository contains a Docker setup for a Laravel application and Elk Stack.. The Laravel application will log to the `storage\logs` directory. Filebeat will read the logs and send them to Logstash running in another Docker Compose stack, where you can then configure it to do whatever you want with the logs. these logs from Logstash will save in Elastic, and finally Kibana will read the logs and visualize them
+
 
 ## Setup
 
