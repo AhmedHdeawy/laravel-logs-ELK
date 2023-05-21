@@ -2,6 +2,8 @@
 
 namespace App\Services\OrderService;
 
+use App\Jobs\OrderPaymentJob;
+use App\Jobs\UpdateInventory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Repositories\OrderRepository;
@@ -40,6 +42,8 @@ class OrderServiceConcrete implements OrderServiceContract
             DB::rollBack();
             throw $th;
         }
+
+        $this->runJobs($order->id);
 
         return $order;
     }
@@ -86,7 +90,7 @@ class OrderServiceConcrete implements OrderServiceContract
             'actual_limit' => 2
         ]);
 
-        throw new \Exception("Error Processing Request", 1);
+        // throw new \Exception("Error Processing Request", 1);
         
     }
 
@@ -111,6 +115,12 @@ class OrderServiceConcrete implements OrderServiceContract
             'given' => $this->orderData,
             'ready' => $ready
         ]);
+    }
+
+    private function runJobs(int $orderId)
+    {
+        UpdateInventory::dispatch($orderId);
+        OrderPaymentJob::dispatch($orderId);
     }
 
 }
