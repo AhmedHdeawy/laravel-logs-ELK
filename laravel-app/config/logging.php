@@ -126,6 +126,16 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        // 'elk' => [
+        //     'driver' => 'monolog',
+        //     'handler' => LogstashHandler::class,
+        //     'handler_with' => [
+        //         'host' => 'logstash-host',
+        //         'port' => 5000,
+        //     ],
+        //     'formatter' => env('LOG_CHANNEL', 'stack'),
+        // ],
     ],
 
 ];

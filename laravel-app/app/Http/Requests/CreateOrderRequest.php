@@ -26,6 +26,7 @@ class CreateOrderRequest extends FormRequest
             'items' => 'required|array',
             'items.*.id' => 'required|numeric',
             'items.*.qty' => 'required|numeric|min:1',
+            'user_id' => "nullable|numeric"
         ];
     }
 }

@@ -27,7 +27,7 @@ class UpdateInventory implements ShouldQueue
      */
     public function handle(InventoryServiceContract $inventoryServiceContract): void
     {
-        Log::info("Start update inventory JOB", [
+        Log::alert("ORDER SERVICE :: Start update inventory JOB", [
             'order_id' => $this->orderId
         ]);
 

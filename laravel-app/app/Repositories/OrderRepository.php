@@ -10,6 +10,11 @@ class OrderRepository extends BaseRepository
     {
         return $this->model->create($data);
     }
+    
+    public function findOrderById(int $id): Model
+    {
+        return $this->model->find($id);
+    }
 
     public function model(): string
     {

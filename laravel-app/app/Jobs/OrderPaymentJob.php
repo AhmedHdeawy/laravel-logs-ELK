@@ -27,7 +27,7 @@ class OrderPaymentJob implements ShouldQueue
      */
     public function handle(PaymentServiceContract $paymentServiceContract): void
     {
-        Log::info("ORDER SERVICE :: Start order payment JOB", [
+        Log::alert("ORDER SERVICE :: Start order payment JOB", [
             'order_id' => $this->orderId
         ]);
 

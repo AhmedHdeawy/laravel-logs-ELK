@@ -35,7 +35,7 @@ class OrderServiceConcrete implements OrderServiceContract
             DB::commit();
         } catch (\Throwable $th) {
             Log::error(self::LOG_PRFIX . "Can't place the order", [
-                'user_id' => self::USER_ID,
+                'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
                 'message' => $th->getMessage(),
                 'error' => $th->__toString()
             ]);
@@ -53,7 +53,7 @@ class OrderServiceConcrete implements OrderServiceContract
     {
         # code...
         Log::info(self::LOG_PRFIX . "Start request validation", [
-            'user_id' => self::USER_ID,
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
             'data' => $this->orderData
         ]);
 
@@ -67,7 +67,7 @@ class OrderServiceConcrete implements OrderServiceContract
         $this->checkCoupon();
         
         Log::info(self::LOG_PRFIX . "all checks are passed", [
-            'user_id' => self::USER_ID,
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
             'data' => $this->orderData
         ]);
     }
@@ -77,15 +77,15 @@ class OrderServiceConcrete implements OrderServiceContract
     {
         # code...
         Log::info(self::LOG_PRFIX . "Check the inventory", [
-            'user_id' => self::USER_ID
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID
         ]);
     }
 
     private function checkUserLimit()
     {
         # code...
-        Log::info(self::LOG_PRFIX . "Check the inventory", [
-            'user_id' => self::USER_ID,
+        Log::info(self::LOG_PRFIX . "Check the User Limit", [
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
             'allowed_limit' => 4,
             'actual_limit' => 2
         ]);
@@ -99,7 +99,7 @@ class OrderServiceConcrete implements OrderServiceContract
     {
         # code...
         Log::info(self::LOG_PRFIX . "Check the given coupon", [
-            'user_id' => self::USER_ID,
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
             'coupon' => $this->orderData['coupon_code'] ?? ''
         ]);
     }
@@ -110,8 +110,8 @@ class OrderServiceConcrete implements OrderServiceContract
         $ready = array_merge($this->orderData, ['stack' => 'elk']);
 
         # code...
-        Log::info(self::LOG_PRFIX . "Check the user limit", [
-            'user_id' => self::USER_ID,
+        Log::info(self::LOG_PRFIX . "Prepare data before saving", [
+            'user_id' => $this->orderData['user_id'] ?? self::USER_ID,
             'given' => $this->orderData,
             'ready' => $ready
         ]);
