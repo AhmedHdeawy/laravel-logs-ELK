@@ -37,25 +37,10 @@ docker-compose up
 
 ## Usage
 
-Once the Docker Compose stacks are running, just open the `routes/web.php` file and  the code like the following
+Once the Docker Compose stacks are running, then evenry thing is ready.
 
-```
 
-Route::get('/', function () {
-
-    for ($i=0; $i < 15; $i++) { 
-        Log::info("TEST Logs" . $i + 1 , [
-            'stack' => 'ELK #' . $i,
-            'consumer' => 'filebeat'
-        ]);
-    }
-    
-    return view('welcome');
-});
-
-```
-
-- Kibana Configuration
+### Kibana Configuration
 
 open your browser to access Kibana dashboard through `http://localhost:5601`
 
