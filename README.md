@@ -1,3 +1,6 @@
+## Watch the videos: <https://youtube.com/playlist?list=PL8jxeSupxsFc37mhFAvq5xlPttL_Bgf10>
+
+
 <p align="center"><img src="https://raw.githubusercontent.com/AhmedHdeawy/laravel-logs-ELK/main/laravel-app/public/laravel-elk.jpg"  alt="Laravel ELK Stack"></p>
 
 
